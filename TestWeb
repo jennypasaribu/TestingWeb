@@ -1,0 +1,39 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class TestWeb {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+	System.setProperty("webdriver.chrome.driver","C:\\Users\\jennong\\Downloads\\Selenium\\chromedriver.exe");	
+	WebDriver driver = new ChromeDriver();
+	driver.get("http://www.trivago.co.id/");
+	
+	//System.out.println("Successfully opened the website");
+	
+	Thread.sleep(2000);
+	
+	driver.findElement(By.name("sQuery")).sendKeys("Jakarta");
+
+	Thread.sleep(2000);
+	
+	driver.findElement(By.className("horus-btn-search__label")).click();
+	
+	Thread.sleep(2000);
+	
+	//driver.findElement(By.className("btn-horus__value js-btn-calendar-value")).sendKeys("16/03/17");
+	
+	//Thread.sleep(2000);
+	
+	Select oSelect = new Select(driver.findElement(By.className("btn-horus__value js-btn-calendar-value")));
+	 
+	oSelect.selectByVisibleText("16/03/17");
+	//driver.findElement(By.className("main")).click();
+	
+	}
+
+}
